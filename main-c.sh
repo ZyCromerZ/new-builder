@@ -297,8 +297,12 @@ function SetClang(){
     # git fetch gcc-google ndk-r19
     # git checkout FETCH_HEAD
     # cd ..
+    PATH=""
+    LD_LIBRARY_PATH=""
     clangFolder="$(pwd)/Getclang/bin/clang"
     gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
+    export PATH="$(pwd)/Getclang/bin:${PATH}"
+    export LD_LIBRARY_PATH="$(pwd)/Getclang/lib64:${LD_LIBRARY_PATH}"
 }
 function setRemote(){
     #link remote branch-name
