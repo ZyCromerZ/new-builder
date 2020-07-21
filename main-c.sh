@@ -73,7 +73,7 @@ $SetPassword
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
-- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
+- <code>$(${clangFolder}/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
     fi
     curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
         -F chat_id="$chat_id" \
@@ -125,7 +125,7 @@ $SetPassword
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
-- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${clangFolder}/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
 Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     fi
@@ -219,7 +219,9 @@ function compileNow(){
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
                                 CROSS_COMPILE=$gccFolder \
-                                CC="$clangFolder" \
+                                CC="$clangFolder/clang" \
+                                PATH="$clangFolder:${PATH}" \
+                                LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
     else
         make -j$(($GetCore))  O=out \
@@ -297,7 +299,7 @@ function SetClang(){
     # git fetch gcc-google ndk-r19
     # git checkout FETCH_HEAD
     # cd ..
-    clangFolder="$(pwd)/Getclang/bin/clang"
+    clangFolder="$(pwd)/Getclang/bin"
     gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
 }
 function setRemote(){
