@@ -23,6 +23,7 @@ jobs:
             cd builder_kernel
             git fetch origin master && git checkout origin/master
             # source master.sh
+          no_output_timeout : 5h
 workflows:
   version: 2.1
   cooking:
