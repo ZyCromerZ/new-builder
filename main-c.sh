@@ -222,7 +222,13 @@ function compileNow(){
                                 CC="$clangFolder/clang" \
                                 PATH="$clangFolder:${PATH}" \
                                 LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
+                                AS=llvm-as \
+                                NM=llvm-nm \
+                                OBJDUMP=llvm-objdump \
+                                STRIP=llvm-strip \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
+                                # AR=llvm-ar \
+                                # OBJCOPY=llvm-objcopy \
     else
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
