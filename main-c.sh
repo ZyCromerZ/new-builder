@@ -59,7 +59,7 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 $SetPassword
  
 Using compiler: 
-- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
+- <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
     else
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
@@ -72,7 +72,7 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 $SetPassword
  
 Using compiler: 
-- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${clangFolder}/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
     fi
     curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
@@ -109,7 +109,7 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 $SetPassword
  
 Using compiler: 
-- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
 Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     else
@@ -124,7 +124,7 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 $SetPassword
  
 Using compiler: 
-- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${clangFolder}/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
 Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
@@ -218,21 +218,21 @@ function compileNow(){
     if [ "$clangFolder" != "" ];then
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
-                                CROSS_COMPILE=$gccFolder \
+                                CROSS_COMPILE="$gccFolder/$gccDo" \
                                 CC="$clangFolder/clang" \
                                 PATH="$clangFolder:${PATH}" \
                                 LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
+                                AR="$gccFolder/${gccDoLto}ar" \
                                 AS=llvm-as \
                                 NM=llvm-nm \
                                 OBJDUMP=llvm-objdump \
+                                OBJCOPY="$gccFolder/${gccDoLto}objcopy" \
                                 STRIP=llvm-strip \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
-                                # AR=llvm-ar \
-                                # OBJCOPY=llvm-objcopy \
     else
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
-                                CROSS_COMPILE="$gccFolder"
+                                CROSS_COMPILE="$gccFolder/$gccDo"
     fi
 }
 function update_file() {
@@ -306,7 +306,9 @@ function SetClang(){
     # git checkout FETCH_HEAD
     # cd ..
     clangFolder="$(pwd)/Getclang/bin"
-    gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
+    gccFolder="$(pwd)/GetGcc/bin"
+    gccDo="aarch64-linux-android-"
+    gccDoLto="aarch64-linux-androidkernel-"
 }
 function setRemote(){
     #link remote branch-name
