@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     if [ ! -d $folder ];then
-        git clone https://$githubKey@github.com/ZyCromerZ/begonia_stock -b $branch $folder --depth=1
+        git clone https://$githubKey@github.com/ZyCromerZ/begonia_kernel -b $branch $folder
         cd $folder
     else
         cd $folder
@@ -255,17 +255,19 @@ function build(){
     START=$(date +"%s")
     compileNow
     echo "compile done btw . . ."
-    cp -af out/arch/$SetArch/boot/Image.gz-dtb ./AnyKernel
-    END=$(date +"%s")
-    DIFF=$(($END - $START))
-    withPassword="NO"
-    if [ ! -z "$4" ];then
-        echo "oo"
-        withPassword="YES"
-        makeZip "$1" "$2" "$4"
-    else
-        echo "kk"
-        makeZip "$1" "$2"
+    if [ -e out/arch/$SetArch/boot/Image.gz-dtb ];then
+        cp -af out/arch/$SetArch/boot/Image.gz-dtb ./AnyKernel
+        END=$(date +"%s")
+        DIFF=$(($END - $START))
+        withPassword="NO"
+        if [ ! -z "$4" ];then
+            echo "oo"
+            withPassword="YES"
+            makeZip "$1" "$2" "$4"
+        else
+            echo "kk"
+            makeZip "$1" "$2"
+        fi
     fi
 }
 function Getclang(){
