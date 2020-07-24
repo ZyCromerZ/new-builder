@@ -2,7 +2,7 @@
 ################################################################################################ QK L DTC
     branch="qk/20200711/ul"
     folder="all"
-    FolderUpload=" X01BD/KERNELS/QK-uL"
+    FolderUpload="X01BD/KERNELS/QK-uL"
     spectrumFile="ul.rc"
     . main-b.sh "get-kernel"
     # Getclang 'dtc' && Getclang 'Avalon' && Getclang 'stormbreaker'

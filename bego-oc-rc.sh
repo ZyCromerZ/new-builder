@@ -2,7 +2,7 @@
 ################################################################################################ Memetek
     branch="20200706/Tercydux-OC-rc"
     folder="all"
-    FolderUpload="Kernel/Begonia/Tercydux-TEST"
+    FolderUpload="Begonia/KERNELS/Tercydux-TEST"
     spectrumFile="bego-on.rc"
     . main-c.sh "get-kernel"
     ProjectId="zyc-kernels"
@@ -13,9 +13,9 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001301538740"
 
-    build "" "" "$chat_group_id"
+    build "" "" "-1001301538740"
 
 cd ..
 rm -rf $folder

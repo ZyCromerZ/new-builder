@@ -2,7 +2,7 @@
 ################################################################################################ Memetek
     branch="20200724/root-upstream"
     folder="all"
-    FolderUpload="Kernel/Begonia/EXPERIMENTod/"
+    FolderUpload="Begonia/KERNELS/EXPERIMENTod/"
     spectrumFile="bego.rc"
     . main-d.sh "get-kernel"
     ProjectId="zyc-files"

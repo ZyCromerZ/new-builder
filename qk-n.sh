@@ -2,7 +2,7 @@
 ################################################################################################ QK N DTC
     branch="qk/20200711/n"
     folder="all"
-    FolderUpload=" X01BD/KERNELS/QK-N"
+    FolderUpload="X01BD/KERNELS/QK-N"
     spectrumFile="vipn.rc"
     . main-b.sh "get-kernel"
     # Getclang 'dtc' && Getclang 'Avalon' && Getclang 'stormbreaker'

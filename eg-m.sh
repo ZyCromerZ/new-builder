@@ -2,7 +2,7 @@
 ################################################################################################ EG M DTC
     branch="eg/20200711/m"
     folder="all"
-    FolderUpload=" X01BD/KERNELS/EG/STABLE/M"
+    FolderUpload="X01BD/KERNELS/EG/STABLE/M"
     spectrumFile="m.rc"
     . main-b.sh "get-kernel"
     # Getclang 'dtc' && Getclang 'Avalon' && Getclang 'stormbreaker'
@@ -30,7 +30,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    # FolderUpload=" X01BD/KERNELS/EG/Release-Candidate/F"
+    # FolderUpload="X01BD/KERNELS/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -73,7 +73,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    # FolderUpload=" X01BD/KERNELS/EG/Release-Candidate/F"
+    # FolderUpload="X01BD/KERNELS/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -115,7 +115,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    # FolderUpload=" X01BD/KERNELS/EG/Release-Candidate/F"
+    # FolderUpload="X01BD/KERNELS/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 

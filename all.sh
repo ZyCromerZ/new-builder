@@ -2,7 +2,7 @@
 ################################################################################################ QK N
     branch="qk/20200711/n"
     folder="all"
-    FolderUpload=" X01BD/KERNELS/QK-N"
+    FolderUpload="X01BD/KERNELS/QK-N"
     spectrumFile="vipn.rc"
     . main.sh "get-kernel"
     Getclang
@@ -44,7 +44,7 @@
 ################################################################################################ QK L
 
     branch="qk/20200711/l"
-    FolderUpload=" X01BD/KERNELS/QK-L"
+    FolderUpload="X01BD/KERNELS/QK-L"
     spectrumFile="vipl.rc"
     change_branch
 
@@ -85,7 +85,7 @@
 ################################################################################################ QK uL
 
     branch="qk/20200711/ul"
-    FolderUpload=" X01BD/KERNELS/QK-uL"
+    FolderUpload="X01BD/KERNELS/QK-uL"
     spectrumFile="ul.rc"
     change_branch
 
@@ -126,7 +126,7 @@
 ################################################################################################ EG F
 
     branch="eg/20200711/f"
-    FolderUpload=" X01BD/KERNELS/EG/STABLE/F"
+    FolderUpload="X01BD/KERNELS/EG/STABLE/F"
     spectrumFile="f.rc"
     change_branch
 
@@ -148,7 +148,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    #FolderUpload=" X01BD/KERNELS/EG/STABLE/F"
+    #FolderUpload="X01BD/KERNELS/EG/STABLE/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -167,7 +167,7 @@
 
     branch="eg/20200711/m"
     # folder="qk_normal"
-    FolderUpload=" X01BD/KERNELS/EG/STABLE/M"
+    FolderUpload="X01BD/KERNELS/EG/STABLE/M"
     spectrumFile="m.rc"
     change_branch
 
@@ -189,7 +189,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    #FolderUpload=" X01BD/KERNELS/EG/STABLE/M"
+    #FolderUpload="X01BD/KERNELS/EG/STABLE/M"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -207,7 +207,7 @@
 ################################################################################################ EG H
 
     branch="eg/20200711/h"
-    FolderUpload=" X01BD/KERNELS/EG/STABLE/H"
+    FolderUpload="X01BD/KERNELS/EG/STABLE/H"
     spectrumFile="h.rc"
     change_branch
 
@@ -229,7 +229,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    # FolderUpload=" X01BD/KERNELS/EG/STABLE/H"
+    # FolderUpload="X01BD/KERNELS/EG/STABLE/H"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -246,7 +246,7 @@
 
 ################################################################################################ QK N
     branch="qk/20200711/n"
-    FolderUpload=" X01BD/KERNELS/QK-N"
+    FolderUpload="X01BD/KERNELS/QK-N"
     spectrumFile="vipn.rc"
     change_branch
 
@@ -287,7 +287,7 @@
 ################################################################################################ QK L
 
     branch="qk/20200711/l"
-    FolderUpload=" X01BD/KERNELS/QK-L"
+    FolderUpload="X01BD/KERNELS/QK-L"
     spectrumFile="vipl.rc"
     change_branch
 
@@ -328,7 +328,7 @@
 ################################################################################################ QK uL
 
     branch="qk/20200711/ul"
-    FolderUpload=" X01BD/KERNELS/QK-uL"
+    FolderUpload="X01BD/KERNELS/QK-uL"
     spectrumFile="ul.rc"
     change_branch
 
@@ -369,7 +369,7 @@
 ################################################################################################ EG F
 
     branch="eg/20200711/f"
-    FolderUpload=" X01BD/KERNELS/EG/STABLE/F"
+    FolderUpload="X01BD/KERNELS/EG/STABLE/F"
     spectrumFile="f.rc"
     change_branch
 
@@ -391,7 +391,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    #FolderUpload=" X01BD/KERNELS/EG/STABLE/F"
+    #FolderUpload="X01BD/KERNELS/EG/STABLE/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -410,7 +410,7 @@
 
     branch="eg/20200711/m"
     # folder="qk_normal"
-    FolderUpload=" X01BD/KERNELS/EG/STABLE/M"
+    FolderUpload="X01BD/KERNELS/EG/STABLE/M"
     spectrumFile="m.rc"
     change_branch
 
@@ -432,7 +432,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    #FolderUpload=" X01BD/KERNELS/EG/STABLE/M"
+    #FolderUpload="X01BD/KERNELS/EG/STABLE/M"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -450,7 +450,7 @@
 ################################################################################################ EG H
 
     branch="eg/20200711/h"
-    FolderUpload=" X01BD/KERNELS/EG/STABLE/H"
+    FolderUpload="X01BD/KERNELS/EG/STABLE/H"
     spectrumFile="h.rc"
     change_branch
 
@@ -472,7 +472,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    # FolderUpload=" X01BD/KERNELS/EG/STABLE/H"
+    # FolderUpload="X01BD/KERNELS/EG/STABLE/H"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 

@@ -2,7 +2,7 @@
 ################################################################################################ Memetek
     branch="begonia-q-oss"
     folder="all"
-    FolderUpload="Kernel/Begonia/STOCK-TEST"
+    FolderUpload="Begonia/KERNELS/STOCK-TEST"
     spectrumFile="bego.rc"
     . main-d.sh "get-kernel"
     ProjectId="zyc-files"

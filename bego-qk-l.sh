@@ -2,7 +2,7 @@
 ################################################################################################ Memetek
     branch="20200706/qk-l"
     folder="all"
-    FolderUpload="Kernel/Begonia/QK-L"
+    FolderUpload="Begonia/KERNELS/QK-L"
     spectrumFile="bego.rc"
     . main-c.sh "get-kernel"
     ProjectId="zyc-kernels"

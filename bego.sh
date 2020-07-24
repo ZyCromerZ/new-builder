@@ -2,7 +2,7 @@
 ################################################################################################ Memetek
     branch="20200706/Tercydux"
     folder="all"
-    FolderUpload="Kernel/Begonia/Tercydux"
+    FolderUpload="Begonia/KERNELS/Tercydux"
     spectrumFile="bego-on.rc"
     . main-c.sh "get-kernel"
     ProjectId="zyc-kernels"
