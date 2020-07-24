@@ -16,7 +16,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
         git fetch origin master-begonia && git checkout origin/master-begonia && git branch -D master-begonia && git checkout -b master-begonia
         cd ..
     fi
-    ProjectId="zyc-kernel"
+    ProjectId="zyc-kernels"
     SetDefconfig="begonia_user_defconfig"
     SetDevices="Begonia"
     SetDevicesInfo="Redmi Note 8 pro"
@@ -130,12 +130,12 @@ Using compiler:
 Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     fi
     
-    # if [ "$withPassword" == "YES" ];then
-    #     # sendInfo "$Text" "$chat_password_id"
-    #     sendInfo "$Text" "-1001301538740"
-    # else
-    #     sendInfo "$Text"
-    # fi
+    if [ "$withPassword" == "YES" ];then
+        # sendInfo "$Text" "$chat_password_id"
+        sendInfo "$Text" "-1001301538740"
+    else
+        sendInfo "$Text"
+    fi
 }
 function makeZip(){
     echo 'get kernel name . . .'
@@ -187,14 +187,10 @@ function makeZip(){
     else
         SetPassword=""
     fi
-    SendToSfStatus="nope"
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME"
-        SendToSfStatus="done"
     else
         sendToSf "$ZipName" "$KERNEL_NAME"
-    fi
-    if [ "$TypeBuid" != "Stable" ] && [ "$SendToSfStatus" == "nope" ];then
         sendToTele "$ZipName" "$KERNEL_NAME"
     fi
     rm -rf "$ZipName"

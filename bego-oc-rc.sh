@@ -5,7 +5,7 @@
     FolderUpload="Kernel/Begonia/Tercydux-TEST"
     spectrumFile="bego-on.rc"
     . main-c.sh "get-kernel"
-    ProjectId="zyc-files"
+    ProjectId="zyc-kernels"
     TypeBuid="Stable-RC"
     Getclang
     SetClang

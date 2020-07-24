@@ -17,7 +17,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
         git fetch origin master && git checkout origin/master && git branch -D master && git checkout -b master
         cd ..
     fi
-    ProjectId="zyc-kernel"
+    ProjectId="zyc-kernels"
     SetDefconfig="X01BD_defconfig"
     SetDevices="X01BD"
     SetDevicesInfo="Asus Max Pro M2"
@@ -132,12 +132,12 @@ Using compiler:
 Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     fi
     
-    # if [ "$withPassword" == "YES" ];then
-    #     # sendInfo "$Text" "$chat_password_id"
-    #     sendInfo "$Text" "-1001301538740"
-    # else
-    #     sendInfo "$Text"
-    # fi
+    if [ "$withPassword" == "YES" ];then
+        # sendInfo "$Text" "$chat_password_id"
+        sendInfo "$Text" "-1001301538740"
+    else
+        sendInfo "$Text"
+    fi
 }
 function makeZip(){
    echo 'get kernel name . . .'
@@ -226,6 +226,7 @@ function makeZip(){
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
     else
         sendToSf "$ZipName" "$KERNEL_NAME" "$HzNya"
+        sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
     fi
     rm -rf "$ZipName"
     cd ..

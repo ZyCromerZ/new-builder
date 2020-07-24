@@ -2,7 +2,7 @@
 ################################################################################################ Avalon
     branch="private/20200711-rc"
     folder="all"
-    FolderUpload="X01BD/KERNEL/Tercydux/Release-Candidate/"
+    FolderUpload=" X01BD/KERNELS/Tercydux/Release-Candidate/"
     spectrumFile="pk.rc"
     . main-b.sh "get-kernel"
     # Getclang 'dtc' && Getclang 'Avalon' && Getclang 'stormbreaker'
@@ -59,7 +59,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
+    # FolderUpload=" X01BD/KERNELS/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -101,7 +101,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
+    # FolderUpload=" X01BD/KERNELS/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -145,7 +145,7 @@
     git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
     git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
-    # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
+    # FolderUpload=" X01BD/KERNELS/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
