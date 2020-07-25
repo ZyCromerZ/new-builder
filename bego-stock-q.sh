@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 ################################################################################################ Memetek
-    branch="begonia-q-oss"
+    branch="begonia-q-oss-root"
     folder="all"
-    FolderUpload="Begonia/KERNELS/STOCK-TEST"
+    FolderUpload="Begonia/KERNELS/STOCK-TEST/"
     spectrumFile="bego.rc"
     . main-d.sh "get-kernel"
-    ProjectId="zyc-files"
+    ProjectId="zyc-kernels"
     Getclang
     SetClang
 
