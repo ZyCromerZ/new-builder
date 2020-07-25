@@ -145,7 +145,7 @@ function makeZip(){
         KERNEL_NAME=""
     fi
     echo 'get kernel version . . .'
-    ZIP_KERNEL_VERSION="4.4.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
+    ZIP_KERNEL_VERSION="4.14.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
     if [ ! -d "AnyKernel" ];then
         git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 -b master-begonia AnyKernel 
         cd "AnyKernel"
