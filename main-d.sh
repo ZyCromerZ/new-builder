@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     if [ ! -d $folder ];then
-        git clone https://$githubKey@github.com/ZyCromerZ/begonia_kernel -b $branch $folder
+        git clone https://$githubKey@github.com/ZyCromerZ/begonia_stock -b $branch $folder --depth=1
         cd $folder
     else
         cd $folder
@@ -16,7 +16,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
         git fetch origin master-begonia && git checkout origin/master-begonia && git branch -D master-begonia && git checkout -b master-begonia
         cd ..
     fi
-    ProjectId="zyc-kernel"
+    ProjectId="zyc-kernels"
     SetDefconfig="begonia_user_defconfig"
     SetDevices="Begonia"
     SetDevicesInfo="Redmi Note 8 pro"
@@ -37,7 +37,7 @@ function sendInfo(){
         -d chat_id="$sendTo" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="$1"
+        -d text="$1" 1>/dev/null 2>/dev/null
 }
 function sendToTele(){
     echo  "send To tele"
@@ -59,7 +59,7 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 $SetPassword
  
 Using compiler: 
-- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
+- <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
     else
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
@@ -72,19 +72,19 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 $SetPassword
  
 Using compiler: 
-- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
-- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
+- <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${clangFolder}/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
     fi
     curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
         -F chat_id="$chat_id" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="$Text"
+        -F caption="$Text" 1>/dev/null 2>/dev/null
 }
 function sendToSf(){
     echo "upload to sf"
     Zip_File="$(pwd)/$1"
-    rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" "$my_host@frs.sourceforge.net:/home/frs/project/$ProjectId/$FolderUpload/"
+    rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" "$my_host@frs.sourceforge.net:/home/frs/project/$ProjectId/$FolderUpload/" 1>/dev/null 2>/dev/null
     createLink=$1
     createLink=${createLink/"["/"%5B"}
     createLink=${createLink/"]"/"%5D"}
@@ -109,7 +109,7 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 $SetPassword
  
 Using compiler: 
-- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
 Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     else
@@ -124,18 +124,18 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 $SetPassword
  
 Using compiler: 
-- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
-- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${clangFolder}/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
 Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     fi
     
-    # if [ "$withPassword" == "YES" ];then
-    #     # sendInfo "$Text" "$chat_password_id"
-    #     sendInfo "$Text" "-1001301538740"
-    # else
-    #     sendInfo "$Text"
-    # fi
+    if [ "$withPassword" == "YES" ];then
+        # sendInfo "$Text" "$chat_password_id"
+        sendInfo "$Text" "-1001301538740"
+    else
+        sendInfo "$Text"
+    fi
 }
 function makeZip(){
     echo 'get kernel name . . .'
@@ -145,7 +145,7 @@ function makeZip(){
         KERNEL_NAME=""
     fi
     echo 'get kernel version . . .'
-    ZIP_KERNEL_VERSION="4.14.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
+    ZIP_KERNEL_VERSION="4.4.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
     if [ ! -d "AnyKernel" ];then
         git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 -b master-begonia AnyKernel 
         cd "AnyKernel"
@@ -153,7 +153,6 @@ function makeZip(){
         cd "AnyKernel"
         git fetch origin master-begonia && git checkout origin/master-begonia && git branch -D master-begonia && git checkout -b master-begonia
     fi
-    echo "to anykernel folder . . ."
     if [ ! -d "spectrum" ];then
         git clone https://$githubKey@github.com/ZyCromerZ/spectrum.git spectrum
     else
@@ -163,13 +162,10 @@ function makeZip(){
         git checkout -b master
         cd ..
     fi
-    echo "created spectrum folder done"
     if [ -e "spectrum/$spectrumFile" ];then
-        echo 'spectrum found . . .'
         cp -af "spectrum/$spectrumFile" init.spectrum.rc
         sed -i "s/persist.spectrum.kernel.*/persist.spectrum.kernel $KERNEL_NAME/g" init.spectrum.rc
     else
-        echo 'spectrum not found . . .'
         if [ -e "init.spectrum.rc" ];then
             rm -rf init.spectrum.rc
         fi
@@ -181,9 +177,9 @@ function makeZip(){
     else
         ZipName="[$TANGGAL][$SetDevices]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     fi
-    zip -r $ZipName ./ -x /.git/**\* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/**\* ./*.zip  2>&1
+    zip -r $ZipName ./ -x /.git/**\* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/**\* ./*.zip  1>/dev/null 2>/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
-        zip -r --password "$3" "$ZipName-protected.zip" $ZipName 2>&1
+        zip -r --password "$3" "$ZipName-protected.zip" $ZipName 1>/dev/null 2>/dev/null 2>&1
         rm -rf "$ZipName"
         setName="$ZipName-protected.zip"
         ZipName="$setName"
@@ -191,14 +187,10 @@ function makeZip(){
     else
         SetPassword=""
     fi
-    SendToSfStatus="nope"
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME"
-        SendToSfStatus="done"
     else
         sendToSf "$ZipName" "$KERNEL_NAME"
-    fi
-    if [ "$TypeBuid" != "Stable" ] && [ "$SendToSfStatus" == "nope" ];then
         sendToTele "$ZipName" "$KERNEL_NAME"
     fi
     rm -rf "$ZipName"
@@ -206,29 +198,31 @@ function makeZip(){
 
 }
 function clean_build() {
-    make -j$(($GetCore)) O=out clean mrproper
-    make -j$(($GetCore)) clean mrproper
-    git checkout origin/$branch && git branch -D $branch
+    make -j$(($GetCore)) O=out clean mrproper 1>/dev/null 2>/dev/null
+    make -j$(($GetCore)) clean mrproper 1>/dev/null 2>/dev/null
+    git checkout origin/$branch && git branch -D $branch 1>/dev/null 2>/dev/null
 }
 function makeCleanOnly(){
-    make -j$(($GetCore)) O=out clean mrproper
-    make -j$(($GetCore)) clean mrproper
+    make -j$(($GetCore)) O=out clean mrproper 1>/dev/null 2>/dev/null
+    make -j$(($GetCore)) clean mrproper 1>/dev/null 2>/dev/null
 }
 function change_branch() {
-    git fetch origin $branch && git checkout FETCH_HEAD  && git checkout -b $branch
+    git fetch origin $branch && git checkout FETCH_HEAD  && git checkout -b $branch 1>/dev/null 2>/dev/null
 }
 function compileNow(){
     make -j$(($GetCore))  O=out ARCH="$SetArch" "$SetDefconfig"
     if [ "$clangFolder" != "" ];then
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
-                                CROSS_COMPILE=$gccFolder \
-                                CC="$clangFolder" \
+                                CROSS_COMPILE="$gccFolder/$gccDo" \
+                                CC="$clangFolder/clang" \
+                                PATH="$clangFolder:${PATH}" \
+                                LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
     else
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
-                                CROSS_COMPILE="$gccFolder"
+                                CROSS_COMPILE="$gccFolder/$gccDo"
     fi
 }
 function update_file() {
@@ -254,20 +248,15 @@ function build(){
     TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
     compileNow
-    echo "compile done btw . . ."
-    if [ -e out/arch/$SetArch/boot/Image.gz-dtb ];then
-        cp -af out/arch/$SetArch/boot/Image.gz-dtb ./AnyKernel
-        END=$(date +"%s")
-        DIFF=$(($END - $START))
-        withPassword="NO"
-        if [ ! -z "$4" ];then
-            echo "oo"
-            withPassword="YES"
-            makeZip "$1" "$2" "$4"
-        else
-            echo "kk"
-            makeZip "$1" "$2"
-        fi
+    cp -af out/arch/$SetArch/boot/Image.gz-dtb AnyKernel
+    END=$(date +"%s")
+    DIFF=$(($END - $START))
+    withPassword="NO"
+    if [ ! -z "$4" ];then
+        withPassword="YES"
+        makeZip "$1" "$2" "$4"
+    else
+        makeZip "$1" "$2"
     fi
 }
 function Getclang(){
@@ -306,8 +295,10 @@ function SetClang(){
     # git fetch gcc-google ndk-r19
     # git checkout FETCH_HEAD
     # cd ..
-    clangFolder="$(pwd)/Getclang/bin/clang"
-    gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
+    clangFolder="$(pwd)/Getclang/bin"
+    gccFolder="$(pwd)/GetGcc/bin"
+    gccDo="aarch64-linux-android-"
+    gccDoLto="aarch64-linux-androidkernel-"
 }
 function setRemote(){
     #link remote branch-name
