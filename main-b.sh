@@ -113,7 +113,7 @@ Using compiler:
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${gccBFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
+Link Download : <a href='https://master.dl.sourceforge.net/project/$ProjectId/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
     else
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
@@ -129,7 +129,7 @@ Using compiler:
 - <code>$(${gccBFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
+Link Download : <a href='https://master.dl.sourceforge.net/project/$ProjectId/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
     fi
     
     if [ "$withPassword" == "YES" ];then
@@ -211,7 +211,7 @@ function makeZip(){
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$TypeFor$Type[$TANGGAL][$SetDevices]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
+    ZipName="$TypeFor[$TANGGAL][$SetDevices]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
     zip -r $ZipName ./ -x /.git/**\* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/**\* ./*.zip  1>/dev/null 2>/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
         zip -r --password "$3" "$ZipName-protected.zip" $ZipName 1>/dev/null 2>/dev/null 2>&1
