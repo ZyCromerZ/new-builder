@@ -77,7 +77,7 @@ $SetPassword
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://master.dl.sourceforge.net/zyc-kernel/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
+Link Download : <a href='https://master.dl.sourceforge.net/project/zyc-kernel/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
     else
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
@@ -91,7 +91,7 @@ Using compiler:
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://master.dl.sourceforge.net/zyc-kernel/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
+Link Download : <a href='https://master.dl.sourceforge.net/project/zyc-kernel/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
     fi
     
     if [ "$withPassword" == "YES" ];then
