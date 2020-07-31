@@ -23,6 +23,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     SetArch="arm64"
     TypeBuid="Stable"
     IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
+    UseLTO="YES"
     export ARCH="$SetArch"
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="CircleCI-server"
@@ -212,19 +213,39 @@ function change_branch() {
 function compileNow(){
     make -j$(($GetCore))  O=out ARCH="$SetArch" "$SetDefconfig"
     if [ "$clangFolder" != "" ];then
-        make -j$(($GetCore))  O=out \
-                                ARCH="$SetArch" \
-                                CROSS_COMPILE="$gccFolder/$gccDo" \
-                                CC="$clangFolder/clang" \
-                                PATH="$clangFolder:${PATH}" \
-                                LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
-                                AR="$gccFolder/${gccDoLto}ar" \
-                                AS=llvm-as \
-                                NM=llvm-nm \
-                                OBJDUMP=llvm-objdump \
-                                OBJCOPY="$gccFolder/${gccDoLto}objcopy" \
-                                STRIP=llvm-strip \
-                                CLANG_TRIPLE=aarch64-linux-gnu-
+        if [ "$UseLTO" == "YES" ];then
+            make -j$(($GetCore))  O=out \
+                                    ARCH="$SetArch" \
+                                    PATH="$clangFolder:$gccFolder:${PATH}" \
+                                    LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
+                                    CC=clang \
+                                    CROSS_COMPILE="$gccDo" \
+                                    AR="${gccDoLto}ar" \
+                                    AS=llvm-as \
+                                    NM=llvm-nm \
+                                    OBJCOPY="${gccDoLto}objcopy" \
+                                    OBJDUMP=llvm-objdump \
+                                    OBJSIZE=llvm-size \
+                                    READELF=llvm-readelf \
+                                    STRIP=llvm-strip \
+                                    HOSTCC=clang \
+                                    HOSTCXX=clang++ \
+                                    HOSTAR=llvm-ar \
+                                    HOSTLD=ld.lld \
+                                    LD=ld.lld \
+                                    LLVM=1 \
+                                    LLVM_IAS=1 \
+                                    CLANG_TRIPLE=aarch64-linux-gnu-
+                                    # CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+        else
+            make -j$(($GetCore))  O=out \
+                                    ARCH="$SetArch" \
+                                    PATH="$clangFolder:$gccFolder:${PATH}" \
+                                    LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
+                                    CROSS_COMPILE="$gccDo" \
+                                    CC=clang \
+                                    CLANG_TRIPLE=aarch64-linux-gnu-
+        fi
     else
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
