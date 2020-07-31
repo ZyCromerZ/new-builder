@@ -111,7 +111,7 @@ $SetPassword
 Using compiler: 
 - <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://master.dl.sourceforge.net/project/$ProjectId/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
+Link Download : <a href='https://master.dl.sourceforge.net/$ProjectId/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
     else
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
@@ -127,7 +127,7 @@ Using compiler:
 - <code>$(${gccFolder}/${gccDo}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${clangFolder}/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://master.dl.sourceforge.net/project/$ProjectId/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
+Link Download : <a href='https://master.dl.sourceforge.net/$ProjectId/files/$FolderUpload/$createLink'>link download $1 ready!!! </a>"
     fi
     
     if [ "$withPassword" == "YES" ];then
