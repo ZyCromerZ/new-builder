@@ -216,10 +216,11 @@ function compileNow(){
         if [ "$UseLTO" == "YES" ];then
             make -j$(($GetCore))  O=out \
                                     ARCH="$SetArch" \
-                                    PATH="$clangFolder:$gccFolder:${PATH}" \
+                                    PATH="$clangFolder:$gccFolder:$gccBFolder:${PATH}" \
                                     LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
                                     CC=clang \
                                     CROSS_COMPILE="$gccDo" \
+                                    CROSS_COMPILE_ARM32="$gccBDo" \
                                     AR="${gccDoLto}ar" \
                                     AS=llvm-as \
                                     NM=llvm-nm \
@@ -234,15 +235,15 @@ function compileNow(){
                                     CLANG_TRIPLE=aarch64-linux-gnu-
                                     # HOSTLD=ld.lld \
                                     # LD=ld.lld \
-                                    # LLVM=1 \
-                                    # LLVM_IAS=1 \
-                                    # CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+                                    
+
         else
             make -j$(($GetCore))  O=out \
                                     ARCH="$SetArch" \
-                                    PATH="$clangFolder:$gccFolder:${PATH}" \
+                                    PATH="$clangFolder:$gccFolder:$gccBFolder:${PATH}" \
                                     LD_LIBRARY_PATH="$clangFolder/../lib64:${LD_LIBRARY_PATH}" \
                                     CROSS_COMPILE="$gccDo" \
+                                    CROSS_COMPILE_ARM32="$gccBDo" \
                                     CC=clang \
                                     CLANG_TRIPLE=aarch64-linux-gnu-
         fi
@@ -301,9 +302,10 @@ function Getclang(){
     [ ! -d ".git" ] && git init
     setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "android-10.0.0_r40"
     cd ..
-    # [ ! -d "$(pwd)/GetGccB" ] && mkdir GetGccB
-    # cd GetGccB
-    # cd ..
+    [ ! -d "$(pwd)/GetGccB" ] && mkdir GetGccB
+    cd GetGccB
+    setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "android-10.0.0_r40"
+    cd ..
 }
 function SetClang(){
     cd Getclang
@@ -318,14 +320,16 @@ function SetClang(){
     git fetch gcc-google android-10.0.0_r40
     git checkout FETCH_HEAD
     cd ..
-    # cd GetGccB
-    # git fetch gcc-google ndk-r19
-    # git checkout FETCH_HEAD
-    # cd ..
+    cd GetGccB
+    git fetch gcc-google android-10.0.0_r40
+    git checkout FETCH_HEAD
+    cd ..
     clangFolder="$(pwd)/Getclang/bin"
     gccFolder="$(pwd)/GetGcc/bin"
     gccDo="aarch64-linux-android-"
     gccDoLto="aarch64-linux-androidkernel-"
+    gccBFolder="$(pwd)/GetGccB/bin"
+    gccBDo="arm-linux-androideabi-"
 }
 function setRemote(){
     #link remote branch-name

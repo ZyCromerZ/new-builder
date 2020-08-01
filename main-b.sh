@@ -414,12 +414,12 @@ function Getclang(){
     cd GetGccB
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "master"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "android-10.0.0_r40"
     elif [ "$1" == "GCC" ];then
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "master"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "android-10.0.0_r40"
     else
         setRemote "https://github.com/arter97/arm32-gcc" "gcc-9-latest" "master"
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "master"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "android-10.0.0_r40"
     fi
     cd ..
 }
