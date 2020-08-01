@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ Memetek
-    branch="20200706/Tercydux-test"
+    branch="20200706/Tercydux"
     folder="all"
     FolderUpload="Begonia/KERNELS/EXPERIMENTod/"
     spectrumFile="bego.rc"
