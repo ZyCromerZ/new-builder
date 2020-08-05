@@ -272,7 +272,7 @@ function Getclang(){
     [ ! -d "$(pwd)/GetGcc" ] && mkdir GetGcc
     cd GetGcc
     [ ! -d ".git" ] && git init
-    setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "android-10.0.0_r40"
+    setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "android-10.0.0_r41"
     cd ..
     # [ ! -d "$(pwd)/GetGccB" ] && mkdir GetGccB
     # cd GetGccB
@@ -288,7 +288,7 @@ function SetClang(){
     fi
     cd ..
     cd GetGcc
-    git fetch gcc-google android-10.0.0_r40
+    git fetch gcc-google android-10.0.0_r41
     git checkout FETCH_HEAD
     cd ..
     # cd GetGccB
