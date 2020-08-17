@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ QK N DTC
-    branch="qk/20200711/n-rc"
+    branch="qk/20200711/n-new-rc"
     folder="all"
     FolderUpload="X01BD/KERNELS/QK-TEST"
     spectrumFile="vipn.rc"
