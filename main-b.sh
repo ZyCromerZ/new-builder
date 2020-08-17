@@ -188,19 +188,19 @@ function makeZip(){
         HzNya=${HzNya/"Stormbreaker"/""}
     fi
     if [[ "$1" == *"DTCoLd"* ]];then
-        Type="[DTC-With-GCC-Google]"
+        Type="[DTC]"
     elif [[ "$1" == *"DTC"* ]];then
-        Type="[DTC-With-GCC-9-and-Google]"
+        Type="[DTC]"
     elif [[ "$1" == *"AvalonTest"* ]];then
-        Type="[Avalon-clang-with-another-gcc]"
+        Type="[Avalon]"
     elif [[ "$1" == *"Avalon"* ]];then
-        Type="[Avalon-clang]"
+        Type="[Avalon]"
     elif [[ "$1" == *"GCC"* ]];then
-        Type="[GCC-Only]"
+        Type="[GCC]"
     elif [[ "$1" == *"Proton"* ]];then
-        Type="[Proton-clang]"
+        Type="[Proton]"
     elif [[ "$1" == *"Stormbreaker"* ]];then
-        Type="[Stormbreaker-clang]"
+        Type="[Stormbreaker]"
     else
         Type=""
     fi
@@ -211,7 +211,7 @@ function makeZip(){
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$TypeFor[$TANGGAL][$SetDevices]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
+    ZipName="[$TypeFor]$Type[$TANGGAL][$SetDevices]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
     zip -r $ZipName ./ -x /.git/**\* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/**\* ./*.zip  1>/dev/null 2>/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
         zip -r --password "$3" "$ZipName-protected.zip" $ZipName 1>/dev/null 2>/dev/null 2>&1
