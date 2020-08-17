@@ -435,9 +435,17 @@ function SetClang(){
         cd Getclang
         git checkout proton/master
         cd ..
+        cd GetGcc
+        git fetch gcc-google android-10.0.0_r41
+        git checkout FETCH_HEAD
+        cd ..
+        cd GetGccB
+        git fetch gcc-google android-10.0.0_r41
+        git checkout FETCH_HEAD
+        cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
-        gccBFolder="$(pwd)/Getclang/bin/arm-linux-gnueabi-"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
+        gccBFolder="$(pwd)/GetGccB/bin/arm-linux-androideabi-"
     elif [ "$1" == "stormbreaker" ];then
         cd Getclang
         git checkout stormbreaker/11.x
