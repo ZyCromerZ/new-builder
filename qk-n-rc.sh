@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-################################################################################################ QK N DTC
+################################################################################################ QK N proton
     branch="qk/20200711/n-new-rc"
     folder="all"
     FolderUpload="X01BD/KERNELS/QK-TEST"
@@ -14,14 +14,14 @@
     # CONFIG_HZ="300"
     # sendInfo "starting build QuantumKiller-N . . ."
 
-    build "QDTC60Hz" "" "-1001301538740"
-    build "QDTC65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "QDTC66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "QDTC67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "QDTC68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "QDTC69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "QDTC71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "QDTC72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Qproton60Hz" "" "-1001301538740"
+    build "Qproton65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Qproton66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Qproton67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Qproton68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Qproton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Qproton71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Qproton72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -36,13 +36,13 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "PDTC60Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "PDTC65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "PDTC66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "PDTC67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "PDTC68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "PDTC69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "PDTC71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "PDTC72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Pproton60Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Pproton65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Pproton66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Pproton67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Pproton68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Pproton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Pproton71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "Pproton72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
 cd ..
 rm -rf $folder
