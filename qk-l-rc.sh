@@ -19,7 +19,7 @@
     # build "QProton66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "QProton67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "QProton68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "QProton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "QProton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     build "QProton71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "QProton72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
@@ -40,7 +40,7 @@
     # build "PProton66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "PProton67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "PProton68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "PProton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "PProton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     build "PProton71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "PProton72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     clean_build
@@ -57,7 +57,7 @@
     # build "QDTC66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "QDTC67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "QDTC68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "QDTC69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "QDTC69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     build "QDTC71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "QDTC72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
@@ -79,7 +79,7 @@
     # build "PDTC66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "PDTC67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "PDTC68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "PDTC69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "PDTC69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     build "PDTC71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
     # build "PDTC72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
 cd ..
