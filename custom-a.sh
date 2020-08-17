@@ -16,8 +16,8 @@
     build "QDTC60Hz" "tele" "-1001434683571"
 
     git reset --hard $MainCommit
-    git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
-    git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
+    git revert fde8d99aaa52fb00d378ded46847d9dd28a7a167 --no-commit
+    git commit -s -m "revert: fde8d99aaa52fb00d378ded46847d9dd28a7a167"
 
     # FolderUpload="X01BD/KERNELS/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)

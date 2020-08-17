@@ -14,21 +14,21 @@
     # CONFIG_HZ="300"
     # sendInfo "starting build QuantumKiller-N . . ."
 
-    build "Qproton60Hz" "" "-1001301538740"
-    build "Qproton65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Qproton66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Qproton67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Qproton68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Qproton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "Qproton71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Qproton72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "QProton60Hz" "" "-1001301538740"
+    build "QProton65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QProton66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QProton67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QProton68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QProton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "QProton71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QProton72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-N done . . ."
 
     ## for pie
     git reset --hard $MainCommit
-    git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
-    git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
+    git revert fde8d99aaa52fb00d378ded46847d9dd28a7a167 --no-commit
+    git commit -s -m "revert: fde8d99aaa52fb00d378ded46847d9dd28a7a167"
 
     # FolderUpload="X01BD/KERNELS/DC/Release-Candidate/uL"
     GetCommit=$(git log --pretty=format:'%h' -1)
@@ -36,13 +36,52 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "Pproton60Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "Pproton65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Pproton66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Pproton67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Pproton68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Pproton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "Pproton71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    # build "Pproton72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "PProton60Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "PProton65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PProton66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PProton67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PProton68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PProton69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "PProton71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PProton72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    clean_build
+
+    change_branch
+    GetCommit=$(git log --pretty=format:'%h' -1)
+    HeadCommit=$GetCommit
+    MainCommit=$GetCommit
+    # CONFIG_HZ="300"
+    # sendInfo "starting build QuantumKiller-N . . ."
+
+    build "QDTC60Hz" "" "-1001301538740"
+    build "QDTC65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QDTC66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QDTC67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QDTC68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QDTC69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "QDTC71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "QDTC72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+
+    # sendInfo "build QuantumKiller-N done . . ."
+
+    ## for pie
+    git reset --hard $MainCommit
+    git revert fde8d99aaa52fb00d378ded46847d9dd28a7a167 --no-commit
+    git commit -s -m "revert: fde8d99aaa52fb00d378ded46847d9dd28a7a167"
+
+     
+    GetCommit=$(git log --pretty=format:'%h' -1)
+    HeadCommit=$GetCommit
+
+    # sendInfo "starting build DeadlyCute-N . . ."
+
+    build "PDTC60Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "PDTC65Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PDTC66Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PDTC67Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PDTC68Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PDTC69Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "PDTC71Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    # build "PDTC72Hz" "" "-1001301538740" 1>/dev/null 2>/dev/null && echo "build done . . ."
 cd ..
 rm -rf $folder
