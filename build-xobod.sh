@@ -22,6 +22,10 @@ make_changes qk-l
 make_changes qk-l-rc
 make_changes qk-ul
 make_changes qk-ul-rc
+make_changes private
+make_changes private-rc
+make_changes private-oc
+make_changes private-oc-rc
 git checkout master
 if [ ! -z "$1" ] && [ "$1" == "rc" ];then
     git push neetroid -f qk-n-rc qk-l-rc qk-ul-rc private-oc-rc
