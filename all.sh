@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ QK N
-    branch="qk/20200711/n-new"
+    branch="qk/20200825/n"
     folder="all"
     FolderUpload="X01BD/KERNELS/QK-N"
     spectrumFile="vipn.rc"
@@ -43,7 +43,7 @@
 
 ################################################################################################ QK L
 
-    branch="qk/20200711/l-new"
+    branch="qk/20200825/l"
     FolderUpload="X01BD/KERNELS/QK-L"
     spectrumFile="vipl.rc"
     change_branch
@@ -84,7 +84,7 @@
 
 ################################################################################################ QK uL
 
-    branch="qk/20200711/ul-new"
+    branch="qk/20200825/ul"
     FolderUpload="X01BD/KERNELS/QK-uL"
     spectrumFile="ul.rc"
     change_branch
@@ -245,7 +245,7 @@
     clean_build
 
 ################################################################################################ QK N
-    branch="qk/20200711/n-new"
+    branch="qk/20200825/n"
     FolderUpload="X01BD/KERNELS/QK-N"
     spectrumFile="vipn.rc"
     change_branch
@@ -286,7 +286,7 @@
 
 ################################################################################################ QK L
 
-    branch="qk/20200711/l-new"
+    branch="qk/20200825/l"
     FolderUpload="X01BD/KERNELS/QK-L"
     spectrumFile="vipl.rc"
     change_branch
@@ -327,7 +327,7 @@
 
 ################################################################################################ QK uL
 
-    branch="qk/20200711/ul-new"
+    branch="qk/20200825/ul"
     FolderUpload="X01BD/KERNELS/QK-uL"
     spectrumFile="ul.rc"
     change_branch

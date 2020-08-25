@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ QK L proton
-    branch="qk/20200711/l-new"
+    branch="qk/20200825/l"
     folder="all"
     FolderUpload="X01BD/KERNELS/QK-L"
     spectrumFile="vipn.rc"
